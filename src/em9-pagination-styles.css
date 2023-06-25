@@ -1,0 +1,62 @@
+/* em9-pagination-styles.css */
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.pagination-controls.material button {
+  padding: 8px 16px;
+  margin: 0 4px;
+  border: none;
+  background-color: #f5f5f5;
+  color: #000;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.pagination-controls.material input {
+  width: 48px;
+  padding: 4px;
+  margin: 0 4px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.pagination-controls.material select {
+  padding: 4px 8px;
+  margin: 0 4px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.pagination-controls.basic button {
+  /* Customize styles for Basic layout buttons */
+}
+
+.pagination-controls.basic input {
+  /* Customize styles for Basic layout input fields */
+}
+
+.pagination-controls.basic select {
+  /* Customize styles for Basic layout select dropdowns */
+}
+
+.pagination-controls .page-number {
+  padding: 4px;
+  margin: 0 4px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.pagination-controls .page-number.active {
+  background-color: #f5f5f5;
+}

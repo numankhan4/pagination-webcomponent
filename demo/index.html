@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background: #fafafa;
+    }
+    .container {
+      max-width: 80%;
+      margin: 50px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit';
+    import '../dist/src/em9-pagination.js';
+
+    function fetchData() {
+      // Simulated data fetching
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const data = [
+            { name: `Item 1`, value: 10 },
+            { name: 'Item 1', value: 10 },
+            { name: 'Item 2', value: 5 },
+            { name: 'Item 3', value: 8 },
+            { name: 'Item 4', value: 3 },
+            { name: 'Item 5', value: 12 },
+            { name: 'Item 6', value: 7 },
+            { name: 'Item 7', value: 2 },
+            { name: 'Item 8', value: 9 },
+            { name: 'Item 9', value: 6 },
+            { name: 'Item 10', value: 11 },
+            { name: 'Item 1', value: 10 },
+            { name: 'Item 2', value: 5 },
+            { name: 'Item 3', value: 8 },
+            { name: 'Item 4', value: 3 },
+            { name: 'Item 5', value: 12 },
+            { name: 'Item 6', value: 7 },
+            { name: 'Item 7', value: 2 },
+            { name: 'Item 8', value: 9 },
+            { name: 'Item 9', value: 6 },
+            { name: 'Item 10', value: 11 },
+            { name: 'Item 1', value: 10 },
+            { name: 'Item 2', value: 5 },
+            { name: 'Item 3', value: 8 },
+            { name: 'Item 4', value: 3 },
+            { name: 'Item 5', value: 12 },
+            { name: 'Item 6', value: 7 },
+            { name: 'Item 7', value: 2 },
+            { name: 'Item 8', value: 9 },
+            { name: 'Item 9', value: 6 },
+            { name: 'Item 10', value: 11 },
+            // ... Additional data items
+          ];
+          resolve(data);
+        }, 1000);
+      });
+    }
+
+    const customDataFormatter = (item) => {
+    // Implement your custom formatting logic here
+    // This function should return the formatted string representation of the item
+
+    // Example implementation: concatenate all properties with their values
+      const formattedData = Object.entries(item)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join(', ');
+
+      return formattedData;
+    };
+    async function initialize() {
+      const data = await fetchData();
+      render(
+        html`
+        <div class="container">
+          <em9-pagination
+            .data="${data}"
+            .dataFormatter="${customDataFormatter}"
+            .currentPage="${1}"
+            .itemsPerPage="${2}"
+            .sortColumn="${'name'}" // Set the initial sort column
+            .sortDirection="${'asc'}" // Set the initial sort direction
+          ></em9-pagination></div>
+        `,
+        document.querySelector('#demo')
+      );
+    }
+
+    initialize();
+  </script>
+</body>
+</html>
